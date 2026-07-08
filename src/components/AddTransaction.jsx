@@ -42,46 +42,75 @@ function AddTransaction({addTransaction}) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="transaction-form" onSubmit={handleSubmit}>
+    <div className="form-group">
+      <label>Title</label>
       <input
-        placeholder="Title"
+        type="text"
+        placeholder="Enter title"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e)=>setTitle(e.target.value)}
       />
+    </div>
 
-      <input
-        type="number"
-        value={amount}
-        onChange={(e) => setAmount(e.target.value)}
-      />
-
-      <label>Select Category</label>
-      <select value={category} onChange={(e)=>setCategory(e.target.value)}>
-        {categories.map((cat) => (
+    <div className="form-group">
+      <label>Category</label>
+      <select
+        value={category}
+        onChange={(e)=>setCategory(e.target.value)}>
+        {categories.map(cat=>(
           <option key={cat} value={cat}>
             {cat}
           </option>
         ))}
       </select>
-
+    </div>
+  
+    <div className="form-group">
       <label>Account</label>
-      <select value={account} onChange={(e)=>setAccount(e.target.value)}>
-        {accounts.map((acc) => (
+      <select
+        value={account}
+        onChange={(e)=>setAccount(e.target.value)}>
+        {accounts.map(acc=>(
           <option key={acc.id} value={acc.name}>
             {acc.name}
           </option>
         ))}
       </select>
-
-      <input type="date" value={date} onChange={(e)=>setDate(e.target.value)}/>
-
-      <select value={type} onChange={(e) => setType(e.target.value)}>
+    </div>
+  
+    <div className="form-group">
+      <label>Amount</label>
+      <input
+        type="number"
+        value={amount}
+        onChange={(e)=>setAmount(e.target.value)}
+      />
+    </div>
+  
+    <div className="form-group">
+      <label>Date</label>
+      <input
+        type="date"
+        value={date}
+        onChange={(e)=>setDate(e.target.value)}
+      />
+    </div>
+  
+    <div className="form-group">
+      <label>Type</label>
+      <select
+        value={type}
+        onChange={(e)=>setType(e.target.value)}>
         <option value="income">Income</option>
         <option value="expense">Expense</option>
       </select>
-
-      <button type="submit">Add</button>
-    </form>
+    </div>
+  
+    <button className="submit-btn" type="submit">
+        + Add Transaction
+    </button>
+  </form>
   );
 }
 
