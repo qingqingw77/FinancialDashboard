@@ -1,0 +1,1 @@
+Built a React-based financial management dashboard featuring transaction tracking, expense analytics, financial insights, and exportable reports.
